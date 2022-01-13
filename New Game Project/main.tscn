@@ -1,10 +1,37 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://tilemap.tscn" type="PackedScene" id=1]
-[ext_resource path="res://player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://chest.tscn" type="PackedScene" id=3]
+[ext_resource path="res://world/tilemap.tscn" type="PackedScene" id=1]
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://entities/chest.tscn" type="PackedScene" id=3]
+[ext_resource path="res://world/background/paralax_0.png" type="Texture" id=4]
+[ext_resource path="res://world/background/paralax_1.png" type="Texture" id=5]
+[ext_resource path="res://world/background/paralax_2.png" type="Texture" id=6]
 
 [node name="World" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_base_scale = Vector2( 0, 1 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 512, 288 )
+scale = Vector2( 1.82063, 1.82063 )
+texture = ExtResource( 4 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 512, 288 )
+scale = Vector2( 1.82063, 1.82063 )
+texture = ExtResource( 5 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2( 512, 288 )
+scale = Vector2( 1.82063, 1.82063 )
+texture = ExtResource( 6 )
 
 [node name="TILEMAP" parent="." instance=ExtResource( 1 )]
 
