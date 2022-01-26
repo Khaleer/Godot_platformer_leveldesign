@@ -10,36 +10,44 @@
 [node name="World" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-scroll_base_scale = Vector2( 0, 1 )
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.03, 0.1 )
+motion_mirroring = Vector2( 560, 0 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 512, 288 )
-scale = Vector2( 1.82063, 1.82063 )
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
 texture = ExtResource( 4 )
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 560, 0 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2( 512, 288 )
-scale = Vector2( 1.82063, 1.82063 )
 texture = ExtResource( 5 )
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.2, 0.2 )
+motion_mirroring = Vector2( 560, 0 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
-position = Vector2( 512, 288 )
-scale = Vector2( 1.82063, 1.82063 )
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource( 6 )
 
 [node name="TILEMAP" parent="." instance=ExtResource( 1 )]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 64, 0 )
+position = Vector2( 144, -8 )
 
 [node name="Chest" parent="." instance=ExtResource( 3 )]
-position = Vector2( 294, 366 )
+position = Vector2( 320, 176 )
 
 [connection signal="body_entered" from="Chest" to="Chest" method="_on_Chest_body_entered"]
 [connection signal="body_exited" from="Chest" to="Chest" method="_on_Chest_body_exited"]
